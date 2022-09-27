@@ -11,7 +11,7 @@ class Discipline(models.Model):
         return self.name
 
 
-class Listings(models.Model):
+class Listing(models.Model):
     lister = models.ForeignKey(
         'Athlete', null=False, blank=False, on_delete=models.CASCADE)
     discipline = models.ForeignKey(
