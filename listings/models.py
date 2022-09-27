@@ -3,8 +3,6 @@ from athletes.models import Athlete
 
 
 class Discipline(models.Model):
-    listing = models.ForeignKey(
-        'Listing', null=False, blank=False, on_delete=models.SET_NULL)
     name = models.CharField(max_length=254)
 
     def __str__(self):
@@ -28,8 +26,6 @@ class Listing(models.Model):
 
 
 class Condition(models.Model):
-    listing = models.ForeignKey(
-        'Listing', null=False, blank=False, on_delete=models.SET_NULL)
     wear = models.CharField(max_length=50, null=False, blank=False)
 
     def __str__(self):
