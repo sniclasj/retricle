@@ -11,7 +11,7 @@ class Discipline(models.Model):
 
 class Listing(models.Model):
     lister = models.ForeignKey(
-        'Athlete', null=False, blank=False, on_delete=models.CASCADE)
+        Athlete, null=False, blank=False, on_delete=models.CASCADE)
     discipline = models.ForeignKey(
         'Discipline', null=False, blank=False, on_delete=models.SET_NULL)
     condition = models.ForeignKey(
