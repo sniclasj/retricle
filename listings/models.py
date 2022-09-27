@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from athletes.models import Athlete
 
 
 class Discipline(models.Model):
@@ -13,7 +13,7 @@ class Discipline(models.Model):
 
 class Listings(models.Model):
     lister = models.ForeignKey(
-        'User', null=False, blank=False, on_delete=models.CASCADE)
+        'Athlete', null=False, blank=False, on_delete=models.CASCADE)
     discipline = models.ForeignKey(
         'Discipline', null=False, blank=False, on_delete=models.SET_NULL)
     condition = models.ForeignKey(
