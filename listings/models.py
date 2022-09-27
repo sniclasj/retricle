@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Category(models.Model):
@@ -11,6 +12,8 @@ class Category(models.Model):
 
 
 class Listings(models.Model):
+    lister = models.ForeignKey(
+        'User', null=False, blank=False, on_delete=models.CASCADE)
     category = models.ForeignKey(
         'Category', null=False, blank=False, on_delete=models.SET_NULL)
     condition = models.ForeignKey(
@@ -21,7 +24,7 @@ class Listings(models.Model):
     image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
-        return self.category
+        return self.name
 
 
 class Condition(models.Model):
